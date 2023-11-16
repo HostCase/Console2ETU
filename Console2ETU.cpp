@@ -89,26 +89,6 @@ int main()
     cout << "\nmax from not sort= " << maxarrastart;
 
 
-        //min max from bubble
-    int maxarrasort=arra[0];
-    int minarrasort=arra[0];
-    auto start2 = steady_clock::now();
-    for (int i = 0; i < arralenght; ++i) {
-        if (arra[i] > maxarrasort) {
-            maxarrasort = arra[i];
-        }
-        if (arra[i] < minarrasort) {
-            minarrasort = arra[i];
-        }
-    }
-    auto end2 = steady_clock::now();
-    auto result2 = duration_cast<nanoseconds>(end2 - start2);
-    cout <<"\n\n\nВремя поиска после бабла = "<< result2.count() << "\n \n \n";
-    
-    cout << "\nmin from sort= " << minarrasort;
-    cout << "\nmax from sort= " << maxarrasort;
-
-
     //min max~
 
 
