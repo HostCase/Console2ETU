@@ -45,22 +45,15 @@ int main()
 
 
     //min max from bubble
+    int maxarrasort=arra[0];
+    int minarrasort=arra[0];
     auto start2 = steady_clock::now();
-    int minarrasort=arra[0];                                 //min from bubble
-    for (int i = 0; i < arralenght; i++) {
-        for (int j = 0; j < arralenght - 1; j++) {
-            if ((arra[j] < arra[j + 1]) && (minarrasort > arra[j])){
-                minarrasort = arra[j];
+    for (int i = 0; i < arralenght; ++i) {
+        if (arra[i] > maxarrasort) {
+            maxarrasort = arra[i];
         }
-        }
-    }
-    
-    int maxarrasort=arra[0];                                 //max from bubble
-    for (int i = 0; i < arralenght; i++) {
-        for (int j = 0; j < arralenght - 1; j++) {
-            if ((arra[j] < arra[j + 1]) && (maxarrasort < arra[j + 1])) {
-                maxarrasort = arra[j + 1];
-            }
+        if (arra[i] < minarrasort) {
+            minarrasort = arra[i];
         }
     }
     auto end2 = steady_clock::now();
@@ -75,38 +68,15 @@ int main()
     //min max from not sort
     auto start3 = steady_clock::now();
     int minarrastart = arrastart[0];                                 //min 
-                                            for (int i = 0; i < arralenght; i++) {
-                                                for (int j = 0; j < arralenght - 1; j++) {
-                                                    if ((arrastart[j] < arrastart[j + 1]) && (minarrastart > arrastart[j])) {
-                                                        minarrastart = arrastart[j];
-                                                    }
-                                                }
-                                            }
-
-                                            int maxarrastart = arrastart[0];                                 //max 
-                                            for (int i = 0; i < arralenght; i++) {
-                                                for (int j = 0; j < arralenght - 1; j++) {
-                                                    if ((arrastart[j] < arrastart[j + 1]) && (maxarrastart < arrastart[j + 1])) {
-                                                        maxarrastart = arrastart[j + 1];
-                                                    else;
-                                                    }
-                                                }
-                                            }
-        for (int i = 0; i < arralenght; ++i) {
-            if (arra[i] > maxarrastart) {
-                maxarrastart = arra[i];
-            }
-            if (arra[i] < minarrastart) {
-                minarrasort=arra[i]
-            }
-
-
-
-
-}
-
-
-
+    int maxarrastart = arrastart[0];
+    for (int i = 0; i < arralenght; ++i) {
+        if (arrastart[i] > maxarrastart) {
+            maxarrastart = arrastart[i];
+        }
+        if (arrastart[i] < minarrastart) {
+            minarrastart = arrastart[i];
+        }
+    }
 
 
 
@@ -117,6 +87,44 @@ int main()
 
     cout << "\nmin from not sort= " << minarrastart;
     cout << "\nmax from not sort= " << maxarrastart;
+
+
+        //min max from bubble
+    int maxarrasort=arra[0];
+    int minarrasort=arra[0];
+    auto start2 = steady_clock::now();
+    for (int i = 0; i < arralenght; ++i) {
+        if (arra[i] > maxarrasort) {
+            maxarrasort = arra[i];
+        }
+        if (arra[i] < minarrasort) {
+            minarrasort = arra[i];
+        }
+    }
+    auto end2 = steady_clock::now();
+    auto result2 = duration_cast<nanoseconds>(end2 - start2);
+    cout <<"\n\n\nВремя поиска после бабла = "<< result2.count() << "\n \n \n";
+    
+    cout << "\nmin from sort= " << minarrasort;
+    cout << "\nmax from sort= " << maxarrasort;
+
+
+    //min max~
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     return 0;
 }
