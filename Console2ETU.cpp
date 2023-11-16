@@ -27,7 +27,7 @@ int main()
     for (int i = 0; i < arralenght; i++) //второй массив, который явл исходным
         arrastart[i] = arra[i];
     do {
-        cout << "\nВыберите номер\n";
+        cout << "\nВыберите номер\n"; 
         cin >> choosetype;
         switch (choosetype)
         {
