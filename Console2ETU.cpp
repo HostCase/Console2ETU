@@ -1,4 +1,7 @@
-﻿#include <iostream>
+﻿//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ
+//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ
+//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ
+#include <iostream>
 #include <chrono>
 #include <time.h>
 #include <algorithm>
@@ -18,23 +21,19 @@ int main()
     int arra[arralenght];
     int arrastart[arralenght];
     int choosetype, maxarrasort, minarrasort;
+    bool arragenerated = 0;
 
 
     auto result = duration_cast<nanoseconds>(end - start);
 
 
     do {
-        cout << "\nВыберите номер(общая функция)\n";
-        cin >> choosetype;
-        switch (choosetype)
-        {
-            //1
-        case 1: {
-            for (int i = 0; i < arralenght; i++) //ввод в массив
+        if (arragenerated==0) {
+            for (int i = 0; i < arralenght; i++) { //ввод в массив
                 arra[i] = rand() % 199 - 99;
-            for (int i = 0; i < arralenght; i++) //второй массив, который явл исходным
                 arrastart[i] = arra[i];
-            cout << "Массив создан и отсортирован \n";
+            }
+            cout << "Массив создан и отсортирован автоматически\n";
 
 
             //bubble
@@ -49,29 +48,59 @@ int main()
             auto result = duration_cast<nanoseconds>(end - start);
 
             cout << "Время сортировки = " << result.count() << "\n \n \n";
+            arragenerated=1;
+        }
+        cout << "\nВыберите номер(общая функция)\n";
+        cin >> choosetype;
+        switch (choosetype)
+        {
+            //1
+        case 1: {
             int choosetypearra;
-            cout << "Выберите что сделать с массивом\n" << "Показать not sort arra - 1\n" << "Показать sort arra - 2\n" << "Выход - 0\n";
+            cout << "Выберите что сделать с массивом\n"<<"Создать новый массив - 1\n" << "Показать not sort arra - 2\n" << "Показать sort arra - 3\n" << "Выход - 0\n";
             do {
                 cin >> choosetypearra;
                 switch (choosetypearra)
                 {
-
                 case 1: {
+                    for (int i = 0; i < arralenght; i++) { //ввод в массив
+                        arra[i] = rand() % 199 - 99;
+                        arrastart[i] = arra[i];
+                    }
+                    cout << "Новый массив создан и отсортирован\n";
+
+
+                    //bubble
+                    auto start = steady_clock::now();
+                    for (int i = 0; i < arralenght; i++) {
+                        for (int j = 0; j < arralenght - 1; j++) {
+                            if (arra[j] > arra[j + 1])
+                                swap(arra[j], arra[j + 1]);
+                        }
+                    }
+                    auto end = steady_clock::now();
+                    auto result = duration_cast<nanoseconds>(end - start);
+                    cout << "Время сортировки = " << result.count() << "\n \n \n";
+                    cout << "\nВыберите что сделать с массивом\n" << "Создать новый массив - 1\n" << "Показать not sort arra - 2\n" << "Показать sort arra - 3\n" << "Выход - 0\n";
+                    break;
+                }
+
+                case 2: {
                     cout << "Not sort arra\n";
                     for (int i = 0; i < arralenght; i++)
                     {
                         cout << arrastart[i] << "   ";
                     }
-                    cout << "\nВыберите что сделать с массивом\n" << "Показать not sort arra - 1\n" << "Показать sort arra - 2\n" << "Выход - 0\n";
+                    cout << "\nВыберите что сделать с массивом\n" << "Создать новый массив - 1\n" << "Показать not sort arra - 2\n" << "Показать sort arra - 3\n" << "Выход - 0\n";
                     break;
 
                 }
-                case 2: {
+                case 3: {
                     cout << "Sort arra\n";
                     for (int i = 0; i < arralenght; i++) {
                         cout << arra[i] << "   ";
                     }
-                    cout << "\nВыберите что сделать с массивом\n" << "Показать not sort arra - 1\n" << "Показать sort arra - 2\n" << "Выход - 0\n";
+                    cout << "\nВыберите что сделать с массивом\n" << "Создать новый массив - 1\n" << "Показать not sort arra - 2\n" << "Показать sort arra - 3\n" << "Выход - 0\n";
                     break;
                 }
                 } //switchEND
@@ -173,7 +202,7 @@ int main()
             break; }
         }
 
-
+        //Выводит индексы всех элементов, которые равны этому значению, и их количество. Подсчитайте время поиска.
 
 
     } while (choosetype);
