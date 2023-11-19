@@ -9,7 +9,7 @@ using namespace chrono;
 int main()
 {
     time_point<steady_clock, duration<__int64, ratio<1, 1000000000>>> start, end;
-    
+
 
 
 
@@ -18,13 +18,13 @@ int main()
     int arra[arralenght];
     int arrastart[arralenght];
     int choosetype, maxarrasort, minarrasort;
-   
-   
+
+
     auto result = duration_cast<nanoseconds>(end - start);
 
 
     do {
-        cout << "\nВыберите номер(общая функция)\n"; 
+        cout << "\nВыберите номер(общая функция)\n";
         cin >> choosetype;
         switch (choosetype)
         {
@@ -78,7 +78,7 @@ int main()
             } while (choosetypearra);
             break;
         }
-        // 3
+              // 3
         case 2: {
             auto start = steady_clock::now();
             int minarrastart = arrastart[0];
@@ -118,12 +118,43 @@ int main()
             cout << "\n\n\nВремя поиска после бабла = " << result.count() << "\n";
 
             cout << "\nmin from sort= " << minarrasort;
-            cout << "\nmax from sort= " << maxarrasort<<"\n\n";
+            cout << "\nmax from sort= " << maxarrasort << "\n\n";
 
             break; }
+
+
+
+
+        //Среднее not sort
+        case 3: {
+            auto start5 = steady_clock::now();
+            int minarrastartn = arrastart[0];                                
+            int maxarrastartn = arrastart[0];
+            int averagenotsort;
+            for (int i = 0; i < arralenght; ++i) {
+                if (arrastart[i] > maxarrastartn) {
+                    maxarrastartn = arrastart[i];
+                }
+                if (arrastart[i] < minarrastartn) {
+                    minarrastartn = arrastart[i];
+                }
+            }
+            auto end = steady_clock::now();
+            auto result = duration_cast<nanoseconds>(end - start);
+            cout << "\n\n\nВремя поиска среднего несорт = " << result.count() << "\n \n \n";
+            averagenotsort = (minarrastartn + maxarrastartn) / 2;
+
+            cout << "\naverage from not sort= " << averagenotsort;
+
+
+
+            break;
+        }
+
+
+
+        // Среднее sort
         case 4: {
-            //min max~/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                //min max from bubble(4)
             int maxarrasortn = arra[0];
             int minarrasortn = arra[0];
             int averagesort;
@@ -136,47 +167,18 @@ int main()
                     minarrasortn = arra[i];
                 }
             }
-            averagesort = (minarrasortn + minarrasortn)/2;
             auto end = steady_clock::now();
             auto result = duration_cast<nanoseconds>(end - start);
             cout << "\n\n\nВремя поиска среднего после бабла = " << result.count() << "\n \n \n";
-
+            averagesort = (minarrasortn + minarrasortn) / 2;
             cout << "\naverage from sort= " << averagesort;
             break; }
-        case 5: {
-
-            //min max from not sort
-            auto start5 = steady_clock::now();
-            int minarrastartn = arrastart[0];                                 //min 
-            int maxarrastartn = arrastart[0];
-            int averagenotsort;
-            for (int i = 0; i < arralenght; ++i) {
-                if (arrastart[i] > maxarrastartn) {
-                    maxarrastartn = arrastart[i];
-                }
-                if (arrastart[i] < minarrastartn) {
-                    minarrastartn = arrastart[i];
-                }
-            }
-            averagenotsort = (minarrastartn + maxarrastartn)/2;
-
-
-
-
-            auto end = steady_clock::now();
-            auto result = duration_cast<nanoseconds>(end - start);
-            cout << "\n\n\nВремя поиска среднего несорт = " << result.count() << "\n \n \n";
-
-            cout << "\naverage from not sort= " << averagenotsort;
-
-
-
-            break;
         }
-        }
-    }
-        while (choosetype);
-    
+
+
+
+
+    } while (choosetype);
+
     return 0;
 }
-
