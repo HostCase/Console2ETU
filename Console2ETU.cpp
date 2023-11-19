@@ -28,6 +28,7 @@ int main()
         cin >> choosetype;
         switch (choosetype)
         {
+            //1
         case 1: {
             for (int i = 0; i < arralenght; i++) //ввод в массив
                 arra[i] = rand() % 199 - 99;
@@ -61,22 +62,23 @@ int main()
                     {
                         cout << arrastart[i] << "   ";
                     }
-                    cout << "Выберите что сделать с массивом\n" << "Показать not sort arra - 1\n" << "Показать sort arra - 2\n" << "Выход - 0\n";
+                    cout << "\nВыберите что сделать с массивом\n" << "Показать not sort arra - 1\n" << "Показать sort arra - 2\n" << "Выход - 0\n";
                     break;
 
                 }
                 case 2: {
-                    cout << "Sort arra";
+                    cout << "Sort arra\n";
                     for (int i = 0; i < arralenght; i++) {
                         cout << arra[i] << "   ";
                     }
-                    cout << "Выберите что сделать с массивом\n" << "Показать not sort arra - 1\n" << "Показать sort arra - 2\n" << "Выход - 0\n";
+                    cout << "\nВыберите что сделать с массивом\n" << "Показать not sort arra - 1\n" << "Показать sort arra - 2\n" << "Выход - 0\n";
                     break;
                 }
                 } //switchEND
             } while (choosetypearra);
+            break;
         }
-        
+        // 3
         case 2: {
             auto start = steady_clock::now();
             int minarrastart = arrastart[0];
@@ -95,10 +97,10 @@ int main()
 
             auto end = steady_clock::now();
             auto result = duration_cast<nanoseconds>(end - start);
-            cout << "\n\n\nВремя поиска несорт = " << result.count() << "\n \n \n";
+            cout << "\n\n\nВремя поиска несорт = " << result.count() << "\n";
 
             cout << "\nmin from not sort= " << minarrastart;
-            cout << "\nmax from not sort= " << maxarrastart;
+            cout << "\nmax from not sort= " << maxarrastart << "\n\n";
             //min max from bubble
             int maxarrasort = arra[0];
             int minarrasort = arra[0];
@@ -113,10 +115,10 @@ int main()
             }
             auto end2 = steady_clock::now();
             auto result2 = duration_cast<nanoseconds>(end2 - start2);
-            cout << "\n\n\nВремя поиска после бабла = " << result.count() << "\n \n \n";
+            cout << "\n\n\nВремя поиска после бабла = " << result.count() << "\n";
 
             cout << "\nmin from sort= " << minarrasort;
-            cout << "\nmax from sort= " << maxarrasort;
+            cout << "\nmax from sort= " << maxarrasort<<"\n\n";
 
             break; }
         case 4: {
