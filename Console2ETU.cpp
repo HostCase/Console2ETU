@@ -22,16 +22,20 @@ int main()
    
     auto result = duration_cast<nanoseconds>(end - start);
 
-    for (int i = 0; i < arralenght; i++) //ввод в массив
-        arra[i] = rand() % 199 - 99;
-    for (int i = 0; i < arralenght; i++) //второй массив, который явл исходным
-        arrastart[i] = arra[i];
+
     do {
-        cout << "\nВыберите номер\n"; 
+        cout << "\nВыберите номер(общая функция)\n"; 
         cin >> choosetype;
         switch (choosetype)
         {
         case 1: {
+            for (int i = 0; i < arralenght; i++) //ввод в массив
+                arra[i] = rand() % 199 - 99;
+            for (int i = 0; i < arralenght; i++) //второй массив, который явл исходным
+                arrastart[i] = arra[i];
+            cout << "Массив создан и отсортирован \n";
+
+
             //bubble
             auto start = steady_clock::now();
             for (int i = 0; i < arralenght; i++) {
@@ -42,34 +46,38 @@ int main()
             }
             auto end = steady_clock::now();
             auto result = duration_cast<nanoseconds>(end - start);
-            for (int i = 0; i < 100; i++) {
-                cout << arra[i] << "\n";
-            }
-            cout << result.count() << "\n \n \n";
-            break; }
+
+            cout << "Время сортировки = " << result.count() << "\n \n \n";
+            int choosetypearra;
+            cout << "Выберите что сделать с массивом\n" << "Показать not sort arra - 1\n" << "Показать sort arra - 2\n" << "Выход - 0\n";
+            do {
+                cin >> choosetypearra;
+                switch (choosetypearra)
+                {
+
+                case 1: {
+                    cout << "Not sort arra\n";
+                    for (int i = 0; i < arralenght; i++)
+                    {
+                        cout << arrastart[i] << "   ";
+                    }
+                    cout << "Выберите что сделать с массивом\n" << "Показать not sort arra - 1\n" << "Показать sort arra - 2\n" << "Выход - 0\n";
+                    break;
+
+                }
+                case 2: {
+                    cout << "Sort arra";
+                    for (int i = 0; i < arralenght; i++) {
+                        cout << arra[i] << "   ";
+                    }
+                    cout << "Выберите что сделать с массивом\n" << "Показать not sort arra - 1\n" << "Показать sort arra - 2\n" << "Выход - 0\n";
+                    break;
+                }
+                } //switchEND
+            } while (choosetypearra);
+        }
+        
         case 2: {
-            //min max from bubble
-            int maxarrasort = arra[0];
-            int minarrasort = arra[0];
-            auto start2 = steady_clock::now();
-            for (int i = 0; i < arralenght; ++i) {
-                if (arra[i] > maxarrasort) {
-                    maxarrasort = arra[i];
-                }
-                if (arra[i] < minarrasort) {
-                    minarrasort = arra[i];
-                }
-            }
-            auto end2 = steady_clock::now();
-            auto result2 = duration_cast<nanoseconds>(end2 - start2);
-            cout << "\n\n\nВремя поиска после бабла = " << result.count() << "\n \n \n";
-
-            cout << "\nmin from sort= " << minarrasort;
-            cout << "\nmax from sort= " << maxarrasort;
-
-
-
-            //min max from not sort
             auto start = steady_clock::now();
             int minarrastart = arrastart[0];
             int maxarrastart = arrastart[0];
@@ -91,10 +99,29 @@ int main()
 
             cout << "\nmin from not sort= " << minarrastart;
             cout << "\nmax from not sort= " << maxarrastart;
+            //min max from bubble
+            int maxarrasort = arra[0];
+            int minarrasort = arra[0];
+            auto start2 = steady_clock::now();
+            for (int i = 0; i < arralenght; ++i) {
+                if (arra[i] > maxarrasort) {
+                    maxarrasort = arra[i];
+                }
+                if (arra[i] < minarrasort) {
+                    minarrasort = arra[i];
+                }
+            }
+            auto end2 = steady_clock::now();
+            auto result2 = duration_cast<nanoseconds>(end2 - start2);
+            cout << "\n\n\nВремя поиска после бабла = " << result.count() << "\n \n \n";
+
+            cout << "\nmin from sort= " << minarrasort;
+            cout << "\nmax from sort= " << maxarrasort;
+
             break; }
-        case 3: {
+        case 4: {
             //min max~/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                //min max from bubble
+                //min max from bubble(4)
             int maxarrasortn = arra[0];
             int minarrasortn = arra[0];
             int averagesort;
@@ -107,14 +134,14 @@ int main()
                     minarrasortn = arra[i];
                 }
             }
-            averagesort = minarrasortn + minarrasortn;
+            averagesort = (minarrasortn + minarrasortn)/2;
             auto end = steady_clock::now();
             auto result = duration_cast<nanoseconds>(end - start);
             cout << "\n\n\nВремя поиска среднего после бабла = " << result.count() << "\n \n \n";
 
             cout << "\naverage from sort= " << averagesort;
             break; }
-        case 4: {
+        case 5: {
 
             //min max from not sort
             auto start5 = steady_clock::now();
@@ -129,7 +156,7 @@ int main()
                     minarrastartn = arrastart[i];
                 }
             }
-            averagenotsort = minarrastartn + maxarrastartn;
+            averagenotsort = (minarrastartn + maxarrastartn)/2;
 
 
 
@@ -139,6 +166,7 @@ int main()
             cout << "\n\n\nВремя поиска среднего несорт = " << result.count() << "\n \n \n";
 
             cout << "\naverage from not sort= " << averagenotsort;
+
 
 
             break;
