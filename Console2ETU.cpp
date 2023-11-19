@@ -80,9 +80,10 @@ int main()
         }
               // 3
         case 2: {
-            auto start = steady_clock::now();
+
             int minarrastart = arrastart[0];
             int maxarrastart = arrastart[0];
+            auto start = steady_clock::now();
             for (int i = 0; i < arralenght; ++i) {
                 if (arrastart[i] > maxarrastart) {
                     maxarrastart = arrastart[i];
@@ -91,10 +92,6 @@ int main()
                     minarrastart = arrastart[i];
                 }
             }
-
-
-
-
             auto end = steady_clock::now();
             auto result = duration_cast<nanoseconds>(end - start);
             cout << "\n\n\nВремя поиска несорт = " << result.count() << "\n";
@@ -126,11 +123,12 @@ int main()
 
 
         //Среднее not sort
+
         case 3: {
-            auto start5 = steady_clock::now();
             int minarrastartn = arrastart[0];                                
             int maxarrastartn = arrastart[0];
             int averagenotsort;
+            auto start = steady_clock::now();
             for (int i = 0; i < arralenght; ++i) {
                 if (arrastart[i] > maxarrastartn) {
                     maxarrastartn = arrastart[i];
@@ -170,7 +168,7 @@ int main()
             auto end = steady_clock::now();
             auto result = duration_cast<nanoseconds>(end - start);
             cout << "\n\n\nВремя поиска среднего после бабла = " << result.count() << "\n \n \n";
-            averagesort = (minarrasortn + minarrasortn) / 2;
+            averagesort = (minarrasortn + maxarrasortn) / 2;
             cout << "\naverage from sort= " << averagesort;
             break; }
         }
