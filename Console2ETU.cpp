@@ -5,14 +5,15 @@
 #include <chrono>
 #include <time.h>
 #include <algorithm>
-//srand(time(NULL));
+
+
 using namespace std;
 using namespace chrono;
 
 int main()
 {
     time_point<steady_clock, duration<__int64, ratio<1, 1000000000>>> start, end;
-
+    nanoseconds result;
 
 
 
@@ -21,35 +22,27 @@ int main()
     int arra[arralenght];
     int arrastart[arralenght];
     int choosetype, maxarrasort, minarrasort;
-    bool arragenerated = 0;
-
-
-    auto result = duration_cast<nanoseconds>(end - start);
-
-
-    do {
-        if (arragenerated==0) {
-            for (int i = 0; i < arralenght; i++) { //ввод в массив
-                arra[i] = rand() % 199 - 99;
-                arrastart[i] = arra[i];
-            }
-            cout << "Массив создан и отсортирован автоматически\n";
-
-
-            //bubble
-            auto start = steady_clock::now();
-            for (int i = 0; i < arralenght; i++) {
-                for (int j = 0; j < arralenght - 1; j++) {
-                    if (arra[j] > arra[j + 1])
-                        swap(arra[j], arra[j + 1]);
-                }
-            }
-            auto end = steady_clock::now();
-            auto result = duration_cast<nanoseconds>(end - start);
-
-            cout << "Время сортировки = " << result.count() << "\n \n \n";
-            arragenerated=1;
+    ////создание массива 
+        for (int i = 0; i < arralenght; i++) { //ввод в массив
+            arra[i] = rand() % 199 - 99;
+            arrastart[i] = arra[i];
         }
+        cout << "Массив создан и отсортирован автоматически\n";
+
+
+        //bubble
+        start = steady_clock::now();
+        for (int i = 0; i < arralenght; i++) {
+            for (int j = 0; j < arralenght - 1; j++) {
+                if (arra[j] > arra[j + 1])
+                    swap(arra[j], arra[j + 1]);
+            }
+        }
+        end = steady_clock::now();
+        result = duration_cast<nanoseconds>(end - start);
+
+        cout << "Время сортировки = " << result.count() << "\n \n \n";
+    do {
         cout << "\nВыберите номер(общая функция)\n";
         cin >> choosetype;
         switch (choosetype)
@@ -130,7 +123,7 @@ int main()
             //min max from bubble
             int maxarrasort = arra[0];
             int minarrasort = arra[0];
-            auto start2 = steady_clock::now();
+            auto start1 = steady_clock::now();
             for (int i = 0; i < arralenght; ++i) {
                 if (arra[i] > maxarrasort) {
                     maxarrasort = arra[i];
@@ -139,9 +132,9 @@ int main()
                     minarrasort = arra[i];
                 }
             }
-            auto end2 = steady_clock::now();
-            auto result2 = duration_cast<nanoseconds>(end2 - start2);
-            cout << "\n\n\nВремя поиска после бабла = " << result.count() << "\n";
+            auto end1 = steady_clock::now();
+            auto result1 = duration_cast<nanoseconds>(end1 - start1);
+            cout << "\n\n\nВремя поиска после бабла = " << result1.count() << "\n";
 
             cout << "\nmin from sort= " << minarrasort;
             cout << "\nmax from sort= " << maxarrasort << "\n\n";
