@@ -19,9 +19,7 @@ int main()
 
     setlocale(0, "");
     constexpr int arralenght = 100;
-    int arra[arralenght];
-    int arrastart[arralenght];
-    int choosetype, maxarrasort, minarrasort;
+    int arra[arralenght], arrastart[arralenght], choosetype, maxarrasort, minarrasort;
     ////создание массива 
         for (int i = 0; i < arralenght; i++) { //ввод в массив
             arra[i] = rand() % 199 - 99;
@@ -103,8 +101,7 @@ int main()
               // 3
         case 2: {
 
-            int minarrastart = arrastart[0];
-            int maxarrastart = arrastart[0];
+            int minarrastart = arrastart[0], maxarrastart = arrastart[0];
             auto start = steady_clock::now();
             for (int i = 0; i < arralenght; ++i) {
                 if (arrastart[i] > maxarrastart) {
@@ -121,8 +118,7 @@ int main()
             cout << "\nmin from not sort= " << minarrastart;
             cout << "\nmax from not sort= " << maxarrastart << "\n\n";
             //min max from bubble
-            int maxarrasort = arra[0];
-            int minarrasort = arra[0];
+            int maxarrasort = arra[0], minarrasort = arra[0];
             auto start1 = steady_clock::now();
             for (int i = 0; i < arralenght; ++i) {
                 if (arra[i] > maxarrasort) {
@@ -147,9 +143,7 @@ int main()
         //Среднее not sort
 
         case 3: {
-            int minarrastartn = arrastart[0];                                
-            int maxarrastartn = arrastart[0];
-            int averagenotsort;
+            int minarrastartn = arrastart[0], maxarrastartn = arrastart[0], averagenotsort;
             auto start = steady_clock::now();
             for (int i = 0; i < arralenght; ++i) {
                 if (arrastart[i] > maxarrastartn) {
@@ -175,9 +169,7 @@ int main()
 
         // Среднее sort
         case 4: {
-            int maxarrasortn = arra[0];
-            int minarrasortn = arra[0];
-            int averagesort;
+            int maxarrasortn = arra[0], minarrasortn = arra[0], averagesort;
             auto start = steady_clock::now();
             for (int i = 0; i < arralenght; ++i) {
                 if (arra[i] > maxarrasortn) {
@@ -196,6 +188,7 @@ int main()
         }
 
         //Выводит индексы всех элементов, которые равны этому значению, и их количество. Подсчитайте время поиска.
+        
 
 
     } while (choosetype);
