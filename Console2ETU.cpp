@@ -1,12 +1,7 @@
-﻿//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ
-//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ
-//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ//////ПЕРЕВЕСТИ НА АНГЛ
-#include <iostream>
+﻿#include <iostream>
 #include <chrono>
 #include <time.h>
 #include <algorithm>
-
-
 using namespace std;
 using namespace chrono;
 
@@ -14,23 +9,16 @@ int main()
 {
     time_point<steady_clock, duration<__int64, ratio<1, 1000000000>>> start, end;
     nanoseconds result;
-
-
-
-    setlocale(0, "");
     constexpr int arralenght = 100;
     int arra[arralenght], arrastart[arralenght], choosetype, maxarrasort, minarrasort;
 
-    ////создание массива 
-        for (int i = 0; i < arralenght; i++) { //ввод в массив
+        for (int i = 0; i < arralenght; i++) {
             arra[i] = rand() % 199 - 99;
             arrastart[i] = arra[i];
         }
         cout << "Array created and sorted\n";
 
 
-
-        //bubble start
         start = steady_clock::now();
         for (int i = 0; i < arralenght; i++) {
             for (int j = 0; j < arralenght - 1; j++) {
@@ -58,7 +46,6 @@ int main()
             cin >> choosetype;
             switch (choosetype)
             {
-                //1
             case 1: {
                 int choosetypearra;
                 do {
@@ -67,14 +54,12 @@ int main()
                     switch (choosetypearra)
                     {
                     case 1: {
-                        for (int i = 0; i < arralenght; i++) { //ввод в массив
+                        for (int i = 0; i < arralenght; i++) { 
                             arra[i] = rand() % 199 - 99;
                             arrastart[i] = arra[i];
                         }
                         cout << "New array created and sorted\n";
 
-
-                        //bubble
                         auto start = steady_clock::now();
                         for (int i = 0; i < arralenght; i++) {
                             for (int j = 0; j < arralenght - 1; j++) {
@@ -107,11 +92,11 @@ int main()
                         cout << "\n";
                         break;
                     }
-                    } //switchEND
+                    } 
                 } while (choosetypearra);
                 break;
             }
-                  // 3
+
             case 2: {
                 cout << "You choosed show Min/Max from not sorted and sorted array(2)\n";
                 int minarrastart = arrastart[0], maxarrastart = arrastart[0];
@@ -130,7 +115,7 @@ int main()
 
                 cout << "Min from not sort = " << minarrastart << "\n";
                 cout << "Max from not sort = " << maxarrastart << "\n";
-                //min max from bubble
+
                 int maxarrasort = arra[0], minarrasort = arra[0];
                 auto start1 = steady_clock::now();
                 for (int i = 0; i < arralenght; ++i) {
@@ -148,11 +133,6 @@ int main()
                 cout << "Max from sort= " << maxarrasort << "\n"<<"(2) ended\n\n";
                 
                 break; }
-
-
-
-
-                  //Среднее not sort
 
             case 3: {
                 cout << "You choosed show index, average from not sorted array(3)\n";
@@ -188,11 +168,8 @@ int main()
                 break;
             }
 
-
-
-                  // Среднее sort
             case 4: {
-                cout << "You choosed show index, average from sorted array - 4\n";
+                cout << "You choosed show index, average from sorted array(4)\n";
                 int maxarrasortn = arra[0], minarrasortn = arra[0], countindexmax = 0, countindexmin = 0;
                 float averagesort;
                 auto start = steady_clock::now();
@@ -223,8 +200,9 @@ int main()
                 cout << "(4) ended\n\n";
                 break;
             }
+
             case 5: {
-                cout << "You choosed show mount of numbers(in sort) that <A - 5\n";
+                cout << "You choosed show mount of numbers(in sort) that <A(5)\n";
                 int numbera, countindexa=0;
                 cout << "Initialize the number A\n";
                 cin >> numbera;
@@ -237,8 +215,9 @@ int main()
                 cout << "(5) ended\n\n";
                 break;
             }
+
             case 6: {
-                cout << "You choosed show amount of numbers(in sort) that >B - 6\n";
+                cout << "You choosed show amount of numbers(in sort) that >B(6)\n";
                 int numbera, countindexa = 0;
                 cout << "Initialize the number B\n";
                 cin >> numbera;
@@ -251,7 +230,9 @@ int main()
                 cout << "(6) ended\n\n";
                 break;
             }
+
             case 7: {
+                cout<<"You choosed swap elements(7)\n";
                 int choosearra, indexfirst, indexsecond;
                 cout << "Choose in which array we will swap( 1 - sort, 2 - not sort, 0 - exit)\n";
                 cin >> choosearra;
@@ -272,8 +253,6 @@ int main()
                 }
                 
                 } //switch end
-
-
                 cout << "(7) ended\n";
                 break;
             }
