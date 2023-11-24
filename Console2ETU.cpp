@@ -38,11 +38,12 @@ int main()
         cout << "Amount of numbers(in sort) that <A - 5\n";
         cout << "Amount of numbers(in sort) that >B - 6\n";
         cout << "Swap elements - 7\n";
+        cout << "IDZ 1 - 8\n";
         cout << "Exit - 0\n\n";
 
 
         do {
-            cout << "Choose what you want(Show choices - 8)\n";
+            cout << "Choose what you want(Show choices - 9)\n";
             cin >> choosetype;
             switch (choosetype)
             {
@@ -244,11 +245,19 @@ int main()
                 cin >> indexsecond;
                 switch (choosearra) {
                 case 1: {
+                    auto start = steady_clock::now();
                     swap(arra[indexfirst], arra[indexsecond]);
+                    auto end = steady_clock::now();
+                    auto result = duration_cast<nanoseconds>(end - start);
+                    cout << "Time of swap = " << result.count() << "\n";
                     break;
                 }
                 case 2: {
+                    auto start = steady_clock::now();
                     swap(arrastart[indexfirst], arrastart[indexsecond]);
+                    auto end = steady_clock::now();
+                    auto result = duration_cast<nanoseconds>(end - start);
+                    cout << "Time of swap = " << result.count() << "\n";
                     break;
                 }
                 
@@ -257,6 +266,29 @@ int main()
                 break;
             }
             case 8: {
+                cout << "For not sorted array\n";
+                int newarra[arralenght],count[10];
+                for (int i = 0; i < 10; i++)
+                    count[i] = 0;
+                newarra[arralenght - 1] = arrastart[0] + arrastart[arralenght - 1];
+                for (int i = 0; i < arralenght - 1; i++)
+                    newarra[i] = arrastart[i] + arrastart[i + 1];
+                for(int i=0;i<arralenght;i++)
+                    swap(newarra[i], newarra[rand() % 100]);
+                for (int i = 0; i < arralenght; i++) {
+                        for (int j = 1; j <= 9; j++) {
+                            if (newarra[i] % j == 0) {
+                                count[j] += 1;
+                            }
+                        }
+                    
+
+                }
+                for (int j = 1; j <= 9; j++)
+                    cout << "Amount of elements who divided entirely into " << j << " = " << count[j] << "\n";
+                break;
+            }
+            case 9: {
                 cout << "Create new array/Show not sorted array/Show sorted array - 1\n";
                 cout << "Min/Max from not sorted and sorted array - 2\n";
                 cout << "Index, average from not sorted array - 3\n";
@@ -264,6 +296,7 @@ int main()
                 cout << "Amount of numbers(in sort) that <A - 5\n";
                 cout << "Amount of numbers(in sort) that >B - 6\n";
                 cout << "Swap elements - 7\n";
+                cout << "Idz - 8 \n";
                 cout << "Exit - 0\n";
 
                 break;
