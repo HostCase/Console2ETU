@@ -10,8 +10,7 @@ int main()
     time_point<steady_clock, duration<__int64, ratio<1, 1000000000>>> start, end;
     nanoseconds result;
     constexpr int arralenght = 100;
-    int arra[arralenght], arrastart[arralenght], choosetype, maxarrasort, minarrasort;
-
+    int arra[arralenght], arrastart[arralenght], choosetype;
         for (int i = 0; i < arralenght; i++) {
             arra[i] = rand() % 199 - 99;
             arrastart[i] = arra[i];
@@ -50,7 +49,7 @@ int main()
             case 1: {
                 int choosetypearra;
                 do {
-                    cout << "Сhoose what you want(func 1)\n" << "Create new array - 1\n" << "Show not sorted array - 2\n" << "Show sorted array - 3\n" << "Exit from func - 0\n";
+                    cout << "Choose what you want(func 1)\n" << "Create new array - 1\n" << "Show not sorted array - 2\n" << "Show sorted array - 3\n" << "Exit from func - 0\n";
                     cin >> choosetypearra;
                     switch (choosetypearra)
                     {
@@ -281,8 +280,6 @@ int main()
                                 count[j] += 1;
                             }
                         }
-                    
-
                 }
                 for (int j = 1; j <= 9; j++)
                     cout << "Amount of elements who divided entirely into " << j << " = " << count[j] << "\n";
