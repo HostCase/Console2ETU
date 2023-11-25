@@ -62,7 +62,7 @@ int main()
 
                         auto start = steady_clock::now();
                         for (int i = 0; i < arralenght; i++) {
-                            for (int j = 0; j < arralenght - 1; j++) {
+                            for (int j = 0; j < arralenght - 1 - i; j++) {
                                 if (arra[j] > arra[j + 1])
                                     swap(arra[j], arra[j + 1]);
                             }
