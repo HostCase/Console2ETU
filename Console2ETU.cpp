@@ -9,7 +9,7 @@ int main()
 {
     time_point<steady_clock, duration<__int64, ratio<1, 1000000000>>> start, end;
     nanoseconds result;
-    constexpr int arralenght = 100;
+    constexpr int arralenght = 10;
     int arra[arralenght], arrastart[arralenght], choosetype;
         for (int i = 0; i < arralenght; i++) {
             arra[i] = rand() % 199 - 99;
@@ -191,16 +191,17 @@ int main()
 
             case 5: {
                 cout << "You choosed show mount of numbers(in sort) that <A(5)\n";
-                int numbera, countindexa=0;
+                int numbera, counta = 0;
                 cout << "Initialize the number A\n";
                 cin >> numbera;
 
-                for (int i = 0; i < arralenght; ++i) {
-                    if (arra[i] < numbera) {
-                        countindexa += 1;
+                for (int i = 0; i <arralenght-1; i++) {
+                    if (arra[i] > numbera) {
+                        counta = i;
+                        break;
                     }
                 }
-                cout << "Amount of numbers that <A = " << countindexa << "\n";
+                cout << "Amount of numbers that <A = " << counta << "\n";
                 cout << "(5) ended\n\n";
                 break;
             }
@@ -210,9 +211,10 @@ int main()
                 int numbera, counta = 0;
                 cout << "Initialize the number B\n";
                 cin >> numbera;
-                for (int i = 0; i < arralenght; ++i) {
-                    if (arra[i] == numbera && arra[i+1]!=numbera) {
-                        counta = arralenght - i;
+                for (int i = arralenght-1; i > 0; i--) {
+                    if (arra[i] < numbera) {
+                        counta = arralenght-i-1;
+                        break;
                     }
                 }
                 cout << "Amount of numbers that >B = " << counta << "\n";
