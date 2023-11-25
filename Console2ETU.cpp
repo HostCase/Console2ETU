@@ -207,15 +207,15 @@ int main()
 
             case 6: {
                 cout << "You choosed show amount of numbers(in sort) that >B(6)\n";
-                int numbera, countindexa = 0;
+                int numbera, counta = 0;
                 cout << "Initialize the number B\n";
                 cin >> numbera;
                 for (int i = 0; i < arralenght; ++i) {
-                    if (arra[i] > numbera) {
-                        countindexa += 1;
+                    if (arra[i] == numbera && arra[i+1]!=numbera) {
+                        counta = arralenght - i;
                     }
                 }
-                cout << "Amount of numbers that >B = " << countindexa << "\n";
+                cout << "Amount of numbers that >B = " << counta << "\n";
                 cout << "(6) ended\n\n";
                 break;
             }
