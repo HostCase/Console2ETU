@@ -118,14 +118,8 @@ int main()
 
                 int maxarrasort = arra[0], minarrasort = arra[0];
                 auto start1 = steady_clock::now();
-                for (int i = 0; i < arralenght; ++i) {
-                    if (arra[i] > maxarrasort) {
-                        maxarrasort = arra[i];
-                    }
-                    if (arra[i] < minarrasort) {
-                        minarrasort = arra[i];
-                    }
-                }
+                minarrasort = arra[0];
+                maxarrasort = arra[arralenght - 1];
                 auto end1 = steady_clock::now();
                 auto result1 = duration_cast<nanoseconds>(end1 - start1);
                 cout << "Search time after bubble = " << result1.count() << "\n";
