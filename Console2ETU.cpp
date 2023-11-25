@@ -167,14 +167,8 @@ int main()
                 int maxarrasortn = arra[0], minarrasortn = arra[0], countindexmax = 0, countindexmin = 0;
                 float averagesort;
                 auto start = steady_clock::now();
-                for (int i = 0; i < arralenght; ++i) {
-                    if (arra[i] > maxarrasortn) {
-                        maxarrasortn = arra[i];
-                    }
-                    if (arra[i] < minarrasortn) {
-                        minarrasortn = arra[i];
-                    }
-                }
+                minarrasortn = arra[0];
+                maxarrasortn = arra[arralenght - 1];
                 for (int i = 0; i < arralenght; ++i) {
                     if (arra[i] == minarrasortn) {
                         cout << "With index " << i << " contained element with min value\n";
