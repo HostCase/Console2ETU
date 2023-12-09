@@ -9,7 +9,7 @@ int main()
 {
     time_point<steady_clock, duration<__int64, ratio<1, 1000000000>>> start, end;
     nanoseconds result;
-    constexpr int arralenght = 10;
+    constexpr int arralenght = 100;
     int arra[arralenght], arrastart[arralenght], choosetype;
         for (int i = 0; i < arralenght; i++) {
             arra[i] = rand() % 199 - 99;
@@ -195,12 +195,10 @@ int main()
                 cout << "Initialize the number A\n";
                 cin >> numbera;
 
-                for (int i = 0; i <arralenght-1; i++) {
-                    if (arra[i] > numbera) {
-                        counta = i;
-                        break;
-                    }
+                while (arra[counta] < numbera) {
+                    counta += 1;
                 }
+
                 cout << "Amount of numbers that <A = " << counta << "\n";
                 cout << "(5) ended\n\n";
                 break;
@@ -208,16 +206,13 @@ int main()
 
             case 6: {
                 cout << "You choosed show amount of numbers(in sort) that >B(6)\n";
-                int numbera, counta = 0;
+                int numbera, counta = 99;
                 cout << "Initialize the number B\n";
                 cin >> numbera;
-                for (int i = arralenght-1; i > 0; i--) {
-                    if (arra[i] < numbera) {
-                        counta = arralenght-i-1;
-                        break;
-                    }
+                while (arra[counta] > numbera) {
+                    counta -= 1;
                 }
-                cout << "Amount of numbers that >B = " << counta << "\n";
+                cout << "Amount of numbers that >B = " << 99-counta << "\n";
                 cout << "(6) ended\n\n";
                 break;
             }
