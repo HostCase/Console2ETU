@@ -190,16 +190,17 @@ int main()
             }
 
             case 5: {
-                cout << "You choosed show mount of numbers(in sort) that <A(5)\n";
+                cout << "You choosed show amount of numbers (in sort) that < A(5)\n";
                 int numbera, counta = 0;
                 cout << "Initialize the number A\n";
                 cin >> numbera;
 
-                while (arra[counta] < numbera) {
+
+                while (counta < arralenght && arra[counta] < numbera) {
                     counta += 1;
                 }
 
-                cout << "Amount of numbers that <A = " << counta << "\n";
+                cout << "Amount of numbers that < A = " << counta << "\n";
                 cout << "(5) ended\n\n";
                 break;
             }
